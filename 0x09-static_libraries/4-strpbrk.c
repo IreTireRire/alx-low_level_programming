@@ -1,24 +1,24 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _strpbrk - Entry point
- * @s: input
- * @accept: input
- * Return: Always 0 (Success)
+ * _strpbrk - Fx that searches a string for any of a set of bytes
+ * @s: var 1
+ * @accept: var 2
+ * Return: 0
  */
+
 char *_strpbrk(char *s, char *accept)
 {
-	int k;
+	int i, j;
 
-	while (*s)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (k = 0; accept[k]; k++)
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-		if (*s == accept[k])
-		return (s);
+			if (s[i] == accept[j])
+				return (s + i);
 		}
-	s++;
 	}
-
-return ('\0');
+	return (NULL);
 }
-

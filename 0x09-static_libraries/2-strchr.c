@@ -1,21 +1,20 @@
 #include "main.h"
-#include <stddef.h>
+#include <stdio.h>
 
 /**
- * _strchr - Entry point
- * @s: input
- * @c: input
- * Return: Always 0 (Success)
+ * _strchr - Fx that locates a xter in a string
+ * @s: var 1
+ * @c: var 2
+ * Return: 0
  */
+
 char *_strchr(char *s, char c)
 {
-	int i = 0;
-
-	for (; s[i] >= '\0'; i++)
-	{
-		if (s[i] == c)
-			return (&s[i]);
-	}
-	return (0);
+	do {
+		if (*s == c)
+		{
+			return (s);
+		}
+	} while (*s++);
+	return (NULL);
 }
-

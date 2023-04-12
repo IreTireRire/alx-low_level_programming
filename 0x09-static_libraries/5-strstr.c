@@ -1,27 +1,35 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
- * Return: Always 0 (Success)
+ * _strstr - Fx that locates a substring
+ * @haystack: var 1
+ * @needle: var 2
+ * Return: 0
  */
+
 char *_strstr(char *haystack, char *needle)
 {
-	for (; *haystack != '\0'; haystack++)
+	int i, j, match;
+
+	if (*needle == '\0')
+		return (haystack);
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		char *l = haystack;
-		char *p = needle;
-
-		while (*l == *p && *p != '\0')
+		if (haystack[i] == *needle)
 		{
-			l++;
-			p++;
+			for (j = 1; needle[j] != '\0'; j++)
+			{
+				if (needle[j] != haystack[i + j])
+				{
+					match = 0;
+					break;
+				}
+				match = 1;
+			}
+			if (match)
+				return (haystack + i);
 		}
-
-		if (*p == '\0')
-			return (haystack);
 	}
-
-	return (0);
+	return (NULL);
 }
-
