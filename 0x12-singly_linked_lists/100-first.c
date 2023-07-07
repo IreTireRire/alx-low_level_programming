@@ -1,13 +1,14 @@
-#include "stdio.h"
+#include "lists.h"
+#include <stdio.h>
 
-void start(void) __attribute__ ((constructor));
+void first(void) __attribute__ ((constructor));
 
 /**
- * start - function that prints before main
-  * Return: void.
+ * first -  prints You're beat!.
+ *
+ * Return: nothing.
  */
-
-void start(void)
+void first(void)
 {
 	printf("You're beat! and yet, you must allow,\n");
 	printf("I bore my house upon my back!\n");

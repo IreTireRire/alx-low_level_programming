@@ -1,21 +1,21 @@
 #include "lists.h"
 
 /**
- * free_list - function that adds a new node at the end of a list_t list
- * @head: pointer that point to the header node
- * Return: The adress of the new.
+ * free_list - frees a list_t list
+ * @head: head of a linked list
+ * Return: void
  */
 
 void free_list(list_t *head)
-{
-	list_t *tmp;
 
-	while (head)
+{
+	list_t *temp;
+
+	while (head != NULL)
 	{
-		tmp = head;
-		head = head->next;
-		free(tmp->str);
-		free(tmp);
+		temp = head->next;
+		free(head->str);
+		free(head);
+		head = temp;
 	}
-	free(head);
 }
